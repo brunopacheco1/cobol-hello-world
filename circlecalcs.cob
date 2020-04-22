@@ -28,24 +28,29 @@
            PERFORM 0004-CALCULATE-AREA.
            PERFORM 0005-PRINT-RESULTS.
            STOP RUN.
+       0001-END.
 
        0002-READ-RADIUS.
            DISPLAY "Insert the circle radius: ".
            ACCEPT WS-RADIUS.
+       0002-END.
 
        0003-CALCULATE-CIRCUMFERENCE.
            DISPLAY "Calculating circumference...".
            COMPUTE WS-CIRCUMFERENCE = 2 * WS-RADIUS * WS-PI.
            MOVE WS-CIRCUMFERENCE TO WS-DISPLAY-CIRCUMFERENCE.
+       0003-END.
 
        0004-CALCULATE-AREA.
            DISPLAY "Calculating area...".
            COMPUTE WS-AREA = WS-RADIUS ** 2 * WS-PI.
            MOVE WS-AREA TO WS-DISPLAY-AREA.
+       0004-END.
 
        0005-PRINT-RESULTS.
            DISPLAY "The circle circumference is: ",
-               WS-DISPLAY-CIRCUMFERENCE.
+              WS-DISPLAY-CIRCUMFERENCE.
            DISPLAY "The circle area is: ", WS-DISPLAY-AREA.
+       0005-END.
 
        END PROGRAM CIRCLECALCS.

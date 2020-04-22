@@ -26,53 +26,53 @@
                88  DONE                VALUE 'N'.
 
        01  HEADING-LINE1.
-            05 FILLER  PIC X(16) VALUE 'PRODUCT'.
-            05 FILLER  PIC X(2) VALUE SPACES.
-            05 FILLER  PIC X(10) VALUE 'PRICE'.
-            05 FILLER  PIC X(2) VALUE SPACES.
-            05 FILLER  PIC X(8) VALUE 'QUANTITY'.
-            05 FILLER  PIC X(2) VALUE SPACES.
-            05 FILLER  PIC X(10) VALUE 'COST'.
+           05 FILLER  PIC X(16) VALUE 'PRODUCT'.
+           05 FILLER  PIC X(2) VALUE SPACES.
+           05 FILLER  PIC X(10) VALUE 'PRICE'.
+           05 FILLER  PIC X(2) VALUE SPACES.
+           05 FILLER  PIC X(8) VALUE 'QUANTITY'.
+           05 FILLER  PIC X(2) VALUE SPACES.
+           05 FILLER  PIC X(10) VALUE 'COST'.
 
        01  HEADING-LINE2.
-            05 FILLER  PIC X(16) VALUE '================'.
-            05 FILLER  PIC X(2) VALUE SPACES.
-            05 FILLER  PIC X(10) VALUE '=========='.
-            05 FILLER  PIC X(2) VALUE SPACES.
-            05 FILLER  PIC X(8) VALUE '========'.
-            05 FILLER  PIC X(2) VALUE SPACES.
-            05 FILLER  PIC X(10) VALUE '=========='.
+           05 FILLER  PIC X(16) VALUE '================'.
+           05 FILLER  PIC X(2) VALUE SPACES.
+           05 FILLER  PIC X(10) VALUE '=========='.
+           05 FILLER  PIC X(2) VALUE SPACES.
+           05 FILLER  PIC X(8) VALUE '========'.
+           05 FILLER  PIC X(2) VALUE SPACES.
+           05 FILLER  PIC X(10) VALUE '=========='.
 
        01  ITEM-LINE.
-            05 DETAIL-DESCRIPTION  PIC X(16).
-            05 FILLER              PIC X(2) VALUE SPACES.
-            05 DETAIL-PRICE        PIC $$$,$$9.99.
-            05 FILLER              PIC X(2) VALUE SPACES.
-            05 DETAIL-QUANTITY     PIC ZZZZZZZ9.
-            05 FILLER              PIC X(2) VALUE SPACES.
-            05 DETAIL-COST         PIC $$$,$$9.99.
+           05 DETAIL-DESCRIPTION  PIC X(16).
+           05 FILLER              PIC X(2) VALUE SPACES.
+           05 DETAIL-PRICE        PIC $$$,$$9.99.
+           05 FILLER              PIC X(2) VALUE SPACES.
+           05 DETAIL-QUANTITY     PIC ZZZZZZZ9.
+           05 FILLER              PIC X(2) VALUE SPACES.
+           05 DETAIL-COST         PIC $$$,$$9.99.
 
        01  TOTAL-LINE1.
-            05 FILLER  PIC X(40) VALUE SPACES.
-            05 FILLER  PIC X(10) VALUE '=========='.
+           05 FILLER  PIC X(40) VALUE SPACES.
+           05 FILLER  PIC X(10) VALUE '=========='.
 
        01  TOTAL-LINE2.
-            05 FILLER              PIC X(32) VALUE SPACES.
-            05 FILLER              PIC X(6) VALUE 'Items:'.
-            05 FILLER              PIC X(2) VALUE SPACES.
-            05 DET-TOTAL-QUANTITY  PIC ZZZZZZZZZ9.
+           05 FILLER              PIC X(32) VALUE SPACES.
+           05 FILLER              PIC X(6) VALUE 'Items:'.
+           05 FILLER              PIC X(2) VALUE SPACES.
+           05 DET-TOTAL-QUANTITY  PIC ZZZZZZZZZ9.
 
        01  TOTAL-LINE3.
-            05 FILLER           PIC X(32) VALUE SPACES.
-            05 FILLER           PIC X(6) VALUE 'Total:'.
-            05 FILLER           PIC X(2) VALUE SPACES.
-            05 DET-TOTAL-COST   PIC $$$,$$9.99.
+           05 FILLER           PIC X(32) VALUE SPACES.
+           05 FILLER           PIC X(6) VALUE 'Total:'.
+           05 FILLER           PIC X(2) VALUE SPACES.
+           05 DET-TOTAL-COST   PIC $$$,$$9.99.
 
        01  TOTAL-LINE4.
-            05 FILLER                  PIC X(27) VALUE SPACES.
-            05 FILLER                  PIC X(11) VALUE 'Discounted:'.
-            05 FILLER                  PIC X(2) VALUE SPACES.
-            05 DET-TOTAL-DISCOUNTED    PIC $$$,$$9.99.
+           05 FILLER                  PIC X(27) VALUE SPACES.
+           05 FILLER                  PIC X(11) VALUE 'Discounted:'.
+           05 FILLER                  PIC X(2) VALUE SPACES.
+           05 DET-TOTAL-DISCOUNTED    PIC $$$,$$9.99.
 
        PROCEDURE DIVISION.
 
@@ -105,9 +105,9 @@
 
        0004-CALCULATE-DISCOUNT.
            IF TOTAL-COST IS GREATER THAN MINIMUM-FOR-DISCOUNT THEN
-               COMPUTE TOTAL-COST-DISCOUNTED = TOTAL-COST * DISCOUNT
+              COMPUTE TOTAL-COST-DISCOUNTED = TOTAL-COST * DISCOUNT
            ELSE
-               MOVE TOTAL-COST TO TOTAL-COST-DISCOUNTED
+              MOVE TOTAL-COST TO TOTAL-COST-DISCOUNTED
            END-IF.
        0004-END.
 
@@ -117,11 +117,11 @@
            DISPLAY HEADING-LINE1.
            DISPLAY HEADING-LINE2.
            PERFORM VARYING J FROM 1 BY 1 UNTIL J IS EQUAL TO I
-               MOVE ITEM-DESCRIPTION (J) TO DETAIL-DESCRIPTION
-               MOVE ITEM-PRICE (J) TO DETAIL-PRICE
-               MOVE ITEM-QUANTITY (J) TO DETAIL-QUANTITY
-               MOVE ITEM-COST (J) TO DETAIL-COST
-               DISPLAY ITEM-LINE
+              MOVE ITEM-DESCRIPTION (J) TO DETAIL-DESCRIPTION
+              MOVE ITEM-PRICE (J) TO DETAIL-PRICE
+              MOVE ITEM-QUANTITY (J) TO DETAIL-QUANTITY
+              MOVE ITEM-COST (J) TO DETAIL-COST
+              DISPLAY ITEM-LINE
            END-PERFORM.
            DISPLAY TOTAL-LINE1.
            MOVE TOTAL-QUANTITY TO DET-TOTAL-QUANTITY.
