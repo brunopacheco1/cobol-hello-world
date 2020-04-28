@@ -1,0 +1,12 @@
+#Debugging files
+*.i
+*.c
+*.h
+
+#Executable
+petstore
+employees
+helloword
+
+#VSCode
+.vscode
