@@ -4,9 +4,11 @@
 *.h
 
 #Executable
+
+circlecalcs
 petstore
 employees
-helloword
+helloworld
 
 #VSCode
 .vscode
