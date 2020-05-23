@@ -3,14 +3,18 @@
 *.c
 *.h
 
-#Executable
-
+#Executables
 circlecalcs
 petstore
 employees
 helloworld
 datatypes
 sample
+func
+progl
+
+#Report files
+PRINTOUT
 
 #VSCode
 .vscode
